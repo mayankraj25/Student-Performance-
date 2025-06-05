@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ML Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in {
+            animation: fadeIn 1.2s ease-in;
+        }
+        @keyframes fadeIn {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-indigo-200 min-h-screen flex items-center justify-center">
+
+    <div class="container fade-in text-center p-5 bg-white rounded-3xl shadow-2xl max-w-md">
+        <h1 class="text-3xl font-bold mb-6 text-indigo-700">Student Performance bsed Score Predictor</h1>
+        <form action="/predict" method="post">
+            <div class="form-group mb-3">
+                <input type="text" name="feature1" placeholder="Hours Studied" class="form-control" required>
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" name="feature2" placeholder="Previous Score" class="form-control" required>
+            </div>
+            <div class="form-group mb-3">
+                <select name="feature3" class="form-control" required>
+                    <option value="">Extracurricular Activities</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" name="feature4" placeholder="Sleep Hours" class="form-control" required>
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" name="feature5" placeholder="Sample Papers Solved" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 py-2 shadow-lg">Predict</button>
+        </form>
+        <div class="mt-4 text-lg text-green-600 font-semibold">
+            {{ prediction_text }}
+        </div>
+    </div>
+
+</body>
+</html>
